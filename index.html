@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIPOUND</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(270deg, #ff0000, #000000, #ff0000);
+            background-size: 400% 400%; /* Увеличиваем размер фона для анимации */
+            animation: gradientAnimation 10s ease infinite; /* Анимация градиента */
+            color: #ffffff; /* Белый цвет текста */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Центрирование содержимого */
+            justify-content: center; /* Центрирование содержимого */
+            min-height: 100vh; /* Полная высота */
+            padding: 20px; /* Отступы по бокам */
+            box-sizing: border-box; /* Учитываем отступы в ширине */
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        h1 {
+            color: #ff0000; /* Красный цвет заголовка */
+            margin-bottom: 20px; /* Отступ снизу */
+            font-size: 2.5rem; /* Размер шрифта заголовка в rem */
+            text-align: center; /* Центрирование текста */
+        }
+        #music-player {
+            width: 100%;
+            max-width: 800px; /* Максимальная ширина проигрывателя */
+            height: auto; /* Высота проигрывателя автоматически подстраивается */
+            aspect-ratio: 16 / 9; /* Соотношение сторон для проигрывателя */
+            border: none; /* Убираем рамку */
+        }
+        #footer {
+            margin-top: 20px; /* Отступ сверху */
+            text-align: center; /* Центрирование текста */
+            color: #ff0000; /* Красный цвет текста внизу */
+            font-size: 1rem; /* Размер шрифта внизу */
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem; /* Уменьшаем размер шрифта заголовка на маленьких экранах */
+            }
+            #footer {
+                font-size: 0.9rem; /* Уменьшаем размер шрифта внизу на маленьких экранах */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>RIPOUND</h1>
+    <iframe id="music-player" allow="clipboard-write" src="https://music.yandex.ru/iframe/playlist/Rosomaha6567/3">
+        Слушайте <a href='https://music.yandex.ru/users/Rosomaha6567/playlists/3' style="color: #ff0000;">Мне нравится</a> — <a href='https://music.yandex.ru/users/Rosomaha6567' style="color: #ff0000;">Александр Б.</a> на Яндекс Музыке
+    </iframe>
+    <div id="footer">
+        &copy; 2024 RIPOUND
+    </div>
+</body>
+</html>
