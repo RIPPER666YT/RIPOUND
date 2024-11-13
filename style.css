@@ -1,0 +1,196 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    animation: gradient 5s ease infinite;
+    background: linear-gradient(45deg, #ff0000, #000000);
+    background-size: 400% 400%;
+    position: relative;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.title-screen {
+    text-align: center;
+    margin: 20px;
+}
+
+h1, .player-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #ff0000, #000000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.player-screen {
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+.upload-button {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    cursor: pointer;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+}
+
+.upload-icon {
+    width: 10vw; /* Используем vw для адаптивности */
+    height: auto; /* Высота автоматически подстраивается */
+}
+
+.play-pause-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.play-pause-icon {
+    width: 5vw; /* Используем vw для адаптивности */
+    height: auto; /* Высота автоматически подстраивается */
+}
+
+/* Стили для бегунка времени */
+.time-control {
+    margin-top: 20px; /* Отступ сверху для разделения с другими элементами */
+}
+
+.time-slider {
+    -webkit-appearance: none; /* Убираем стандартный стиль слайдера */
+    width: 50vw; /* Ширина слайдера адаптивна */
+    height: 8px; /* Высота полосы слайдера */
+    background: red; /* Цвет полосы */
+    border-radius: 5px; /* Закругление углов полосы */
+    outline: none; /* Убираем обводку */
+}
+
+/* Стили для ползунка */
+.time-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Убираем стандартный стиль ползунка */
+    appearance: none; /* Убираем стандартный стиль ползунка */
+    width: 15px; /* Ширина ползунка */
+    height: 15px; /* Высота ползунка */
+    background: black; /* Цвет ползунка */
+    border-radius: 50%; /* Закругление углов ползунка */
+    cursor: pointer; /* Указатель при наведении */
+}
+
+.time-slider::-moz-range-thumb {
+    width: 15px; /* Ширина ползунка для Firefox */
+    height: 15px; /* Высота ползунка для Firefox */
+    background: black; /* Цвет ползунка для Firefox */
+    border-radius: 50%; /* Закругление углов ползунка для Firefox */
+    cursor: pointer; /* Указатель при наведении для Firefox */
+}
+
+.time-slider::-ms-thumb {
+    width: 15px; /* Ширина ползунка для Internet Explorer */
+    height: 15px; /* Высота ползунка для Internet Explorer */
+    background: black; /* Цвет ползунка для Internet Explorer */
+    border-radius: 50%; /* Закругление углов ползунка для Internet Explorer */
+    cursor: pointer; /* Указатель при наведении для Internet Explorer */
+}
+
+/* Стили для плейлиста */
+.playlist-container {
+    position: absolute; /* Позиционируем контейнер плейлиста */
+    top: 20px; /* Отступ сверху */
+    left: 20px; /* Отступ слева */
+    text-align: left; /* Выравнивание текста влево */
+    background: rgba(0, 0, 0, 0.8); /* Полупрозрачный фон */
+    padding: 10px; /* Отступы внутри контейнера */
+    border-radius: 5px; /* Закругление углов контейнера */
+    max-height: 40vh; /* Максимальная высота контейнера */
+    overflow-y: auto; /* Прокрутка по вертикали */
+    width: 300px; /* Ширина контейнера */
+}
+
+#playlist {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+#playlist li {
+    display: flex; /* Используем flexbox для выравнивания элементов */
+    justify-content: space-between; /* Распределяем пространство между элементами */
+    align-items: center; /* Вертикальное выравнивание по центру */
+    cursor: pointer;
+    padding: 10px;
+    margin: 5px 0; /* Отступы сверху и снизу */
+    background: #403b3b;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+#playlist li:hover {
+    background: #bbb;
+}
+
+#playlist li.active {
+    background: #ff0000;
+    color: white;
+}
+
+/* Добавляем стиль для подсветки контейнера */
+.highlight {
+    background: rgba(255, 0, 0, 0.5); /* Полупрозрачный красный фон */
+    transition: background 0.5s ease; /* Плавный переход фона */
+}
+
+/* Стили для кнопки удаления */
+.remove-button {
+    background: transparent; /* Прозрачный фон */
+    border: none; /* Убираем обводку */
+    cursor: pointer; /* Указатель при наведении */
+    color: red; /* Цвет текста кнопки */
+    font-weight: bold; /* Жирный текст */
+}
+
+/* Стили для заголовка плейлиста */
+.playlist-container h3 {
+    color: red; /* Устанавливаем красный цвет текста */
+}
+
+/* Медиа-запросы для адаптивности на меньших экранах */
+@media (max-width: 600px) {
+    h1, .player-title {
+        font-size: 1.5rem; /* Уменьшаем размер шрифта на маленьких экранах */
+    }
+
+    .upload-icon, .play-pause-icon {
+        width: 20vw; /* Увеличиваем размер иконок на маленьких экранах */
+    }
+
+    .time-slider {
+        width: 80vw; /* Увеличиваем ширину слайдера на маленьких экранах */
+    }
+
+    .playlist-container {
+        width: 90%; /* Увеличиваем ширину контейнера на маленьких экранах */
+        left: 5%; /* Центрируем контейнер */
+    }
+}
