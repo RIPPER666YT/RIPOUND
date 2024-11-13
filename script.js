@@ -97,10 +97,10 @@ document.addEventListener("DOMContentLoaded", function () {
     playPauseButton.addEventListener('click', function() {
         if (audioPlayer.paused) {
             audioPlayer.play();
-            playPauseIcon.src = 'file:///C:/Users/User/Desktop/RIPOUND/image/buttons/pause.png'; // Путь к изображению паузы
+            playPauseIcon.src = 'https://i.postimg.cc/j5kVXFZB/pause.png'; // Путь к изображению паузы
         } else {
             audioPlayer.pause();
-            playPauseIcon.src = 'file:///C:/Users/User/Desktop/RIPOUND/image/buttons/play.png'; // Путь к изображению воспроизведения
+            playPauseIcon.src = 'https://i.postimg.cc/ZYMZFCQ0/play.png'; // Путь к изображению воспроизведения
         }
     });
 
