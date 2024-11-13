@@ -1,66 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RIPOUND</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(270deg, #ff0000, #000000, #ff0000);
-            background-size: 400% 400%; /* Увеличиваем размер фона для анимации */
-            animation: gradientAnimation 10s ease infinite; /* Анимация градиента */
-            color: #ffffff; /* Белый цвет текста */
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Центрирование содержимого */
-            justify-content: center; /* Центрирование содержимого */
-            min-height: 100vh; /* Полная высота */
-            padding: 20px; /* Отступы по бокам */
-            box-sizing: border-box; /* Учитываем отступы в ширине */
-        }
-        @keyframes gradientAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        h1 {
-            color: #ff0000; /* Красный цвет заголовка */
-            margin-bottom: 20px; /* Отступ снизу */
-            font-size: 2.5rem; /* Размер шрифта заголовка в rem */
-            text-align: center; /* Центрирование текста */
-        }
-        #music-player {
-            width: 100%;
-            max-width: 800px; /* Максимальная ширина проигрывателя */
-            height: auto; /* Высота проигрывателя автоматически подстраивается */
-            aspect-ratio: 16 / 9; /* Соотношение сторон для проигрывателя */
-            border: none; /* Убираем рамку */
-        }
-        #footer {
-            margin-top: 20px; /* Отступ сверху */
-            text-align: center; /* Центрирование текста */
-            color: #ff0000; /* Красный цвет текста внизу */
-            font-size: 1rem; /* Размер шрифта внизу */
-        }
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2rem; /* Уменьшаем размер шрифта заголовка на маленьких экранах */
-            }
-            #footer {
-                font-size: 0.9rem; /* Уменьшаем размер шрифта внизу на маленьких экранах */
-            }
+        /* Скрываем элемент audio, но он остается в документе */
+        #audio-player {
+            display: none; /* Или можно использовать visibility: hidden; */
         }
     </style>
 </head>
 <body>
-    <h1>RIPOUND</h1>
-    <iframe id="music-player" allow="clipboard-write" src="https://music.yandex.ru/iframe/playlist/Rosomaha6567/3">
-        Слушайте <a href='https://music.yandex.ru/users/Rosomaha6567/playlists/3' style="color: #ff0000;">Мне нравится</a> — <a href='https://music.yandex.ru/users/Rosomaha6567' style="color: #ff0000;">Александр Б.</a> на Яндекс Музыке
-    </iframe>
-    <div id="footer">
-        &copy; 2024 RIPOUND
+    <div id="title-screen" class="title-screen">
+        <h1>RIPOUND</h1>
     </div>
+    <div id="player-screen" class="player-screen hidden">
+        <h2 class="player-title">RIPOUND</h2>
+        <label for="audio-file" class="upload-button">
+            <img src="file:///C:/Users/User/Desktop/RIPOUND/image/buttons/uploud.png" alt="Загрузить" class="upload-icon">
+            <input type="file" id="audio-file" accept="audio/*" webkitdirectory multiple style="display: none;">
+        </label>
+        
+        <!-- Элемент audio остается в документе, но не виден -->
+        <audio id="audio-player" controls>
+            <source id="audio-source" src="" type="audio/mpeg">
+            Ваш браузер не поддерживает аудио.
+        </audio>
+        
+        <!-- Элемент управления временем -->
+        <div class="time-control">
+            <span class="current-time">0:00</span> <!-- Текущее время трека -->
+            <input type="range" id="time-slider" min="0" value="0" class="time-slider">
+            <span class="duration-time">0:00</span> <!-- Максимальное время трека -->
+        </div>
+        
+        <button id="play-pause-button" class="play-pause-button">
+            <img src="file:///C:/Users/User/Desktop/RIPOUND/image/buttons/play.png" alt="Воспроизведение" class="play-pause-icon">
+        </button>
+
+        <!-- Контейнер для плейлиста -->
+        <div class="playlist-container">
+            <h3>Мои треки</h3>
+            <ul id="playlist"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
